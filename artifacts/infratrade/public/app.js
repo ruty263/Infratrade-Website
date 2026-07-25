@@ -305,9 +305,35 @@ function extractBadges(title) {
 
 // ── Stock card ────────────────────────────────────────────────────────────────
 
+function ebayImgUrl(item_id) {
+  return `https://i.ebayimg.com/images/g/${item_id}/s-l500.jpg`;
+}
+
+function cardImageHtml(item_id) {
+  const src = ebayImgUrl(item_id);
+  return `
+    <div class="sc-img-wrap">
+      <img
+        class="sc-img"
+        src="${src}"
+        alt=""
+        loading="lazy"
+        onerror="this.style.display='none';this.parentElement.querySelector('.sc-img-fallback').style.display='flex'"
+      />
+      <div class="sc-img-fallback" style="display:none">
+        📸 Text Yard for Actual Photos &amp; Video
+      </div>
+    </div>`;
+}
+
+function cardWaMsg(item) {
+  const price = formatPrice(item.price);
+  return `Hi Infratrade, I'm interested in ${item.title} listed at ${price} (ID: ${item.item_id}). Could you confirm availability and send any extra photos if available?`;
+}
+
 function renderStockCard(item, container) {
   const price  = formatPrice(item.price);
-  const waHref = itemWaLink(item);
+  const waHref = waLink(cardWaMsg(item));
   const meta   = catMeta(item.category);
   const badges = extractBadges(item.title);
 
@@ -318,6 +344,7 @@ function renderStockCard(item, container) {
   const card = document.createElement('div');
   card.className = 'stock-card';
   card.innerHTML = `
+    ${cardImageHtml(item.item_id)}
     <div class="sc-body">
       <div class="sc-top-row">
         <div class="sc-cat-label">${escHtml(meta.short)}</div>
@@ -325,10 +352,6 @@ function renderStockCard(item, container) {
       </div>
       <div class="sc-title">${escHtml(item.title)}</div>
       ${badges.length ? `<div class="sc-badges">${badgeHtml}</div>` : ''}
-      <div class="sc-photo-line">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
-        Actual unit photos available via WhatsApp
-      </div>
       <div class="sc-footer">
         <div class="sc-price-wrap">
           <div class="sc-price">${price}</div>
@@ -336,7 +359,7 @@ function renderStockCard(item, container) {
         </div>
         <a class="btn-wa-card" href="${waHref}" target="_blank" rel="noopener">
           ${ICONS.whatsapp}
-          <span>Text Yard for Actual Photos &amp; Price Check</span>
+          <span>💬 WhatsApp Yard for Details &amp; Photos</span>
         </a>
       </div>
     </div>
@@ -477,8 +500,7 @@ function initSearch(items) {
 
 function renderHomepageCard(item, container) {
   const price  = formatPrice(item.price);
-  const msg    = `Hi Infratrade, I saw the ${item.title} listed at ${price} (ID: ${item.item_id}) on your homepage. Can you send actual photos and confirm availability?`;
-  const waHref = waLink(msg);
+  const waHref = waLink(cardWaMsg(item));
   const meta   = catMeta(item.category);
   const badges = extractBadges(item.title);
 
@@ -489,6 +511,7 @@ function renderHomepageCard(item, container) {
   const card = document.createElement('div');
   card.className = 'stock-card';
   card.innerHTML = `
+    ${cardImageHtml(item.item_id)}
     <div class="sc-body">
       <div class="sc-top-row">
         <div class="sc-cat-label">${escHtml(meta.short)}</div>
@@ -496,10 +519,6 @@ function renderHomepageCard(item, container) {
       </div>
       <div class="sc-title">${escHtml(item.title)}</div>
       ${badges.length ? `<div class="sc-badges">${badgeHtml}</div>` : ''}
-      <div class="sc-photo-line">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
-        Actual unit photos available via WhatsApp
-      </div>
       <div class="sc-footer">
         <div class="sc-price-wrap">
           <div class="sc-price">${price}</div>
@@ -507,7 +526,7 @@ function renderHomepageCard(item, container) {
         </div>
         <a class="btn-wa-card" href="${waHref}" target="_blank" rel="noopener">
           ${ICONS.whatsapp}
-          <span>💬 Text Yard for Actual Photos</span>
+          <span>💬 WhatsApp Yard for Details &amp; Photos</span>
         </a>
       </div>
     </div>
