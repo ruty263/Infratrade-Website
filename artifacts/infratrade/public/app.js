@@ -305,27 +305,6 @@ function extractBadges(title) {
 
 // ── Stock card ────────────────────────────────────────────────────────────────
 
-function ebayImgUrl(item_id) {
-  return `https://i.ebayimg.com/images/g/${item_id}/s-l500.jpg`;
-}
-
-function cardImageHtml(item_id) {
-  const src = ebayImgUrl(item_id);
-  return `
-    <div class="sc-img-wrap">
-      <img
-        class="sc-img"
-        src="${src}"
-        alt=""
-        loading="lazy"
-        onerror="this.style.display='none';this.parentElement.querySelector('.sc-img-fallback').style.display='flex'"
-      />
-      <div class="sc-img-fallback" style="display:none">
-        📸 Text Yard for Actual Photos &amp; Video
-      </div>
-    </div>`;
-}
-
 function cardWaMsg(item) {
   const price = formatPrice(item.price);
   return `Hi Infratrade, I'm interested in ${item.title} listed at ${price} (ID: ${item.item_id}). Could you confirm availability and send any extra photos if available?`;
@@ -344,7 +323,6 @@ function renderStockCard(item, container) {
   const card = document.createElement('div');
   card.className = 'stock-card';
   card.innerHTML = `
-    ${cardImageHtml(item.item_id)}
     <div class="sc-body">
       <div class="sc-top-row">
         <div class="sc-cat-label">${escHtml(meta.short)}</div>
@@ -352,6 +330,7 @@ function renderStockCard(item, container) {
       </div>
       <div class="sc-title">${escHtml(item.title)}</div>
       ${badges.length ? `<div class="sc-badges">${badgeHtml}</div>` : ''}
+      <div class="sc-photo-badge">📸 Text Yard for Live Photos &amp; Video</div>
       <div class="sc-footer">
         <div class="sc-price-wrap">
           <div class="sc-price">${price}</div>
@@ -511,7 +490,6 @@ function renderHomepageCard(item, container) {
   const card = document.createElement('div');
   card.className = 'stock-card';
   card.innerHTML = `
-    ${cardImageHtml(item.item_id)}
     <div class="sc-body">
       <div class="sc-top-row">
         <div class="sc-cat-label">${escHtml(meta.short)}</div>
@@ -519,6 +497,7 @@ function renderHomepageCard(item, container) {
       </div>
       <div class="sc-title">${escHtml(item.title)}</div>
       ${badges.length ? `<div class="sc-badges">${badgeHtml}</div>` : ''}
+      <div class="sc-photo-badge">📸 Text Yard for Live Photos &amp; Video</div>
       <div class="sc-footer">
         <div class="sc-price-wrap">
           <div class="sc-price">${price}</div>
