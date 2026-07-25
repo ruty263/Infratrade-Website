@@ -1,0 +1,93 @@
+Add a customer reviews and social proof section to index.html and category pages to build buyer confidence for direct cash/bank transfer transactions.
+
+---
+
+### 1. Header Trust Banner
+Display a high-contrast B2B Trust Bar below the main hero section:
+- **Badge Text:** ⭐⭐⭐⭐⭐ 5-Star Rated Commercial Supplier | Verified Customer Reviews | Tested Ex-Fleet Equipment
+
+---
+
+### 2. Verified Reviews Section
+Create a testimonial grid section titled:
+"What Our Customers Say"
+Subtitle: "Genuine feedback from trade buyers across the UK."
+
+Include the following exact, unedited customer reviews (preserve original wording, spellings, and usernames):
+
+1. Quote: "All handled with care! Good packaging and very fast delivery. Really recommend this seller"
+   - Buyer: andabbat_89
+
+2. Quote: "Great item"
+   - Item: Makita 8406 110V Diamond Core Drill | Heavy Duty Masonry Drill | With Carry Case
+   - Buyer: Camp901736
+
+3. Quote: "Excellent and as described, thanks"
+   - Item: TSURUMI LB-480 Submersible Water Pump 110V 50mm Outlet Working Used
+   - Buyer: Totalpiling
+
+4. Quote: "Good communication. Did all they could to rectify delivery issue. Product as described. Many thanks"
+   - Item: BULLFINCH 1400 PROPANE GAS SPACE BIN HEATER USED INDUSTRIAL WORKSHOP FACTORY
+   - Buyer: Carpy459
+
+5. Quote: "excellent service"
+   - Item: Damp Proof Course Injector 240V DPC Injector Pump
+   - Buyer: Dampm76
+
+6. Quote: "Good description on advert very happy with the pallet truck, even delivered it for me thank you would buy from this company again"
+   - Item: Pramac GS25 Manual Hand Pallet Pump Truck, Lifter by Pramac Series, 2500 kg
+   - Buyer: Whit9039
+
+7. Quote: "Great communication. A pleasure to do business with."
+   - Item: FORD TRANSIT MK6 MK7 2000 - 2015 REAR DOOR LATCH LOCK CABLE LOWER LEFT
+   - Buyer: OrientAutos
+
+8. Quote: "Great. A+"
+   - Item: Hiretech HT8 Floor Sander
+   - Buyer: ClankSpecialist
+
+9. Quote: "Great service"
+   - Item: Hilti TE 22 Rotary Hammer Drill SDS Plus 110V – Professional Concrete Masonry
+   - Buyer: Scaffolder110
+
+10. Quote: "Great value bargain thank you"
+    - Item: DUSTCONTROL DC TROMB 400 H CLASS DUST EXTRACTOR 110V
+    - Buyer: Cliff&Tracey
+
+11. Quote: "On receiving my purchase from this seller the outer casing for my 110v transformer was damaged from transit. I contacted the seller. The lady delt with was friendly, respectable and efficient, wth no extra cost? She organised a replacement within week.Makes such a difference when you get to deal with the right people. Thank you. Recommended, a good seller."
+    - Item: STEP DOWN TRANSFORMER 230V TO 110V 2 SOCKETS ( 1.5KVA EACH, 3KVA TOTAL)
+    - Buyer: Gorpal_79
+
+12. Quote: "First class product and service"
+    - Item: Dimplex AC3N 3kW Air Curtain Over Door Wall Fan Heater Indoor Warm Shops 3000W
+    - Buyer: Heisenberg11111
+
+13. Quote: "God servis all in good working order"
+    - Item: Grundfos Watermill Freeflow Central Heating Powerflushing Flush Unit
+    - Buyer: Xheimsdoskja
+
+14. Quote: "very pleased"
+    - Item: UKCA TRANSFORMER 110V TO 24V FOR WORKLIGHTS LOW VOLTAGE LIGHTS NEVER USED
+    - Buyer: carfast59fastcar
+
+15. Quote: "Excellent Seller!! A+++"
+    - Item: ELITE AC1600 BTU AIR CONDITIONING UNIT 90M3 SHOPS GYMS LARGE ROOMS ETC
+    - Buyer: Markyd3
+
+16. Quote: "Responded to questions promptly, item as described in listing, arrived within time suggested, good value for money as up and running in my workshop now. Great aftersales service too."
+    - Item: PARTS WASHER CLEANER DEGREASER 240V WITH LIGHT AND BRUSH
+    - Buyer: Ttaytocarl
+
+17. Quote: "Very correct and co-operative seller"
+    - Item: RHINO ROOF BARS
+    - Buyer: Aiwanhow
+
+---
+
+### 3. Review Card Formatting
+- Format each card simply:
+  - 5 Gold Stars (`★★★★★`)
+  - The exact quote in clean text
+  - The item title (if specified) formatted as a subtle tag: `[ Item: ... ]`
+  - The username in small grey text
+- Keep the layout clean, readable, and compact.

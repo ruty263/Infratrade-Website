@@ -1039,6 +1039,104 @@ body {
 
 .float-wa svg { width: 30px; height: 30px; }
 
+/* ── B2B Trust Banner ────────────────────────────────────────────────────────*/
+.b2b-trust-banner {
+  background: #0F172A;
+  color: #fff;
+  padding: 0.7rem 1.25rem;
+  text-align: center;
+}
+
+.b2b-trust-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.b2b-stars {
+  color: #FACC15;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+}
+
+.b2b-pipe {
+  color: rgba(255,255,255,0.25);
+  font-weight: 300;
+}
+
+/* ── Reviews Section ─────────────────────────────────────────────────────────*/
+.reviews-section { background: var(--bg2); }
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.review-card {
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  padding: 1.1rem 1.15rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.review-card--featured {
+  border-color: var(--blue);
+  background: #f8f9ff;
+}
+
+.review-stars {
+  color: #FACC15;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+.review-quote {
+  font-size: 0.88rem;
+  color: var(--text);
+  line-height: 1.6;
+  margin: 0;
+  flex: 1;
+}
+
+.review-item-tag {
+  font-size: 0.72rem;
+  color: var(--muted2);
+  background: var(--bg2);
+  border-radius: 4px;
+  padding: 0.3rem 0.5rem;
+  line-height: 1.4;
+  border: 1px solid var(--border);
+}
+
+.review-item-tag::before {
+  content: 'Item: ';
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.review-buyer {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--muted2);
+  letter-spacing: 0.2px;
+}
+
+.review-buyer::before {
+  content: '— ';
+}
+
 /* ── Responsive ──────────────────────────────────────────────────────────────*/
 @media (max-width: 768px) {
   .header-nav { display: none; }
