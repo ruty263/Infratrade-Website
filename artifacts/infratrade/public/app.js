@@ -243,30 +243,92 @@ async function loadInventory() {
   return ITEMS;
 }
 
+// ── Spec badge extractor ──────────────────────────────────────────────────────
+
+const KNOWN_BRANDS = [
+  'Hilti','Makita','DeWalt','Bosch','Dewalt','Milwaukee','Hitachi','Metabo',
+  'Festool','Kango','Ingersoll','Atlas Copco','Stephill','Honda','Kipor',
+  'Husqvarna','Stihl','Paslode','Dewalt','Ryobi','AEG','Ridgid','Fein',
+  'Flex','Panasonic','Snap-on','Gedore','Stanley','Bahco','Knipex',
+  'Wacker','Bomag','Husqvarna','Karcher','Kärcher','Nilfisk','Numatic',
+  'Henry','Dyson','Craftsman','TTI','Metohm','Metrohm','Megger','Fluke',
+  'Draper','Silverline','Evolution','Roughneck','Faithfull',
+];
+
+const SPEC_PATTERNS = [
+  { re: /\b110\s?[Vv]\b/,          label: '110V'       },
+  { re: /\b240\s?[Vv]\b/,          label: '240V'       },
+  { re: /\b18\s?[Vv]\b/,           label: '18V'        },
+  { re: /\b36\s?[Vv]\b/,           label: '36V'        },
+  { re: /\b54\s?[Vv]\b/,           label: '54V'        },
+  { re: /\bSDS\b/i,                label: 'SDS'        },
+  { re: /\bcordless\b/i,           label: 'Cordless'   },
+  { re: /\bcorded\b/i,             label: 'Corded'     },
+  { re: /\bpetrol\b/i,             label: 'Petrol'     },
+  { re: /\bdiesel\b/i,             label: 'Diesel'     },
+  { re: /\bpneumatic\b/i,          label: 'Pneumatic'  },
+  { re: /\belectric\b/i,           label: 'Electric'   },
+  { re: /\bdemolition\b/i,         label: 'Demolition' },
+  { re: /\brotary\b/i,             label: 'Rotary'     },
+  { re: /\bimpact\b/i,             label: 'Impact'     },
+  { re: /\bwet\s?&?\s?dry\b/i,     label: 'Wet & Dry'  },
+  { re: /\bM-class\b/i,            label: 'M-Class'    },
+  { re: /\bL-class\b/i,            label: 'L-Class'    },
+  { re: /kva\b/i,                  label: 'Generator'  },
+  { re: /\bjoist\b|\bfloor\b/i,    label: 'Floor'      },
+  { re: /\bangular\b|\bangle\b/i,  label: 'Angle'      },
+  { re: /\bbattery\b/i,            label: 'Battery'    },
+  { re: /\bkit\b/i,                label: 'Kit'        },
+  { re: /\bnew\b/i,                label: 'New'        },
+  { re: /\bused\b/i,               label: 'Used'       },
+];
+
+function extractBadges(title) {
+  const badges = [];
+  // Brand first (max 1)
+  for (const brand of KNOWN_BRANDS) {
+    if (title.toLowerCase().includes(brand.toLowerCase())) {
+      badges.push({ text: brand, type: 'brand' });
+      break;
+    }
+  }
+  // Spec tags (max 3 more)
+  for (const { re, label } of SPEC_PATTERNS) {
+    if (re.test(title) && badges.length < 4) {
+      if (!badges.some(b => b.text === label)) {
+        badges.push({ text: label, type: 'spec' });
+      }
+    }
+  }
+  return badges.slice(0, 4);
+}
+
 // ── Stock card ────────────────────────────────────────────────────────────────
 
 function renderStockCard(item, container) {
-  const imgUrl = catImg(item.category, item.item_id);
   const price  = formatPrice(item.price);
   const waHref = itemWaLink(item);
   const meta   = catMeta(item.category);
+  const badges = extractBadges(item.title);
+
+  const badgeHtml = badges.map(b =>
+    `<span class="sc-badge sc-badge--${b.type}">${escHtml(b.text)}</span>`
+  ).join('');
 
   const card = document.createElement('div');
   card.className = 'stock-card';
   card.innerHTML = `
-    <div class="sc-img-wrap">
-      <img class="sc-img" src="${imgUrl}" alt="${escHtml(item.title)}"
-           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="sc-img-fallback" style="display:none">
-        <span class="sc-fallback-icon">${ICONS[meta.icon] || ICONS.tag}</span>
-      </div>
-      <div class="sc-photo-badge">📸 Photo on Request</div>
-      <div class="sc-cat-pill">${escHtml(meta.short)}</div>
-    </div>
     <div class="sc-body">
-      <div class="sc-ref">ID: ${escHtml(item.item_id)}</div>
+      <div class="sc-top-row">
+        <div class="sc-cat-label">${escHtml(meta.short)}</div>
+        <div class="sc-ref">ID: ${escHtml(item.item_id)}</div>
+      </div>
       <div class="sc-title">${escHtml(item.title)}</div>
-      <div class="sc-ebay-cat">${escHtml(item.ebay_category)}</div>
+      ${badges.length ? `<div class="sc-badges">${badgeHtml}</div>` : ''}
+      <div class="sc-photo-line">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+        Actual unit photos available via WhatsApp
+      </div>
       <div class="sc-footer">
         <div class="sc-price-wrap">
           <div class="sc-price">${price}</div>
@@ -274,7 +336,7 @@ function renderStockCard(item, container) {
         </div>
         <a class="btn-wa-card" href="${waHref}" target="_blank" rel="noopener">
           ${ICONS.whatsapp}
-          <span>Text Yard for Photos</span>
+          <span>Text Yard for Actual Photos &amp; Price Check</span>
         </a>
       </div>
     </div>
