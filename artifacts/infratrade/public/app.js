@@ -473,13 +473,62 @@ function initSearch(items) {
   }
 }
 
+// ── Homepage featured card (different WA pre-fill) ────────────────────────────
+
+function renderHomepageCard(item, container) {
+  const price  = formatPrice(item.price);
+  const msg    = `Hi Infratrade, I saw the ${item.title} listed at ${price} (ID: ${item.item_id}) on your homepage. Can you send actual photos and confirm availability?`;
+  const waHref = waLink(msg);
+  const meta   = catMeta(item.category);
+  const badges = extractBadges(item.title);
+
+  const badgeHtml = badges.map(b =>
+    `<span class="sc-badge sc-badge--${b.type}">${escHtml(b.text)}</span>`
+  ).join('');
+
+  const card = document.createElement('div');
+  card.className = 'stock-card';
+  card.innerHTML = `
+    <div class="sc-body">
+      <div class="sc-top-row">
+        <div class="sc-cat-label">${escHtml(meta.short)}</div>
+        <div class="sc-ref">ID: ${escHtml(item.item_id)}</div>
+      </div>
+      <div class="sc-title">${escHtml(item.title)}</div>
+      ${badges.length ? `<div class="sc-badges">${badgeHtml}</div>` : ''}
+      <div class="sc-photo-line">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+        Actual unit photos available via WhatsApp
+      </div>
+      <div class="sc-footer">
+        <div class="sc-price-wrap">
+          <div class="sc-price">${price}</div>
+          <div class="sc-price-sub">Cash / Bank Transfer</div>
+        </div>
+        <a class="btn-wa-card" href="${waHref}" target="_blank" rel="noopener">
+          ${ICONS.whatsapp}
+          <span>💬 Text Yard for Actual Photos</span>
+        </a>
+      </div>
+    </div>
+  `;
+  container.appendChild(card);
+}
+
 // ── Featured stock (index.html) ───────────────────────────────────────────────
 
 function buildFeatured(items, container) {
-  // Skip clearance, pick from trade categories, show 12
-  const tradeItems = items.filter(i => !i.category.includes('Clearance') && !i.category.includes('Vehicle'));
-  const slice = tradeItems.slice(0, 12);
-  slice.forEach(item => renderStockCard(item, container));
+  // Skip clearance & vehicle parts, pick 4 at random on every load
+  const tradeItems = items.filter(i =>
+    !i.category.includes('Clearance') && !i.category.includes('Vehicle')
+  );
+  // Fisher-Yates shuffle, take first 4
+  const pool = [...tradeItems];
+  for (let i = pool.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [pool[i], pool[j]] = [pool[j], pool[i]];
+  }
+  pool.slice(0, 4).forEach(item => renderHomepageCard(item, container));
 }
 
 // ── Category page (category.html) ────────────────────────────────────────────
