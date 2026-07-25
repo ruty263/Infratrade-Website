@@ -1,0 +1,274 @@
+{
+  "categories": [
+    { "id": "breakers",   "name": "Breakers",     "icon": "breaker",   "description": "Electric & pneumatic demolition breakers, rotary hammers, and chisels." },
+    { "id": "drills",     "name": "Drills",        "icon": "drill",     "description": "Cordless and corded rotary drills, SDS drills, and hammer drills." },
+    { "id": "vacuums",    "name": "Vacuums",       "icon": "vacuum",    "description": "Industrial wet & dry vacs, HEPA dust extractors for site use." },
+    { "id": "sitepower",  "name": "Site Power",    "icon": "generator", "description": "Petrol and diesel generators, distribution boards, and site transformers." },
+    { "id": "lifting",    "name": "Lifting Gear",  "icon": "chain",     "description": "Chain blocks, lever hoists, sack trucks, and material handling equipment." },
+    { "id": "saws",       "name": "Saws",          "icon": "saw",       "description": "Table saws, mitre saws, disc cutters, and reciprocating saws." },
+    { "id": "spareparts", "name": "Spare Parts",   "icon": "parts",     "description": "Genuine and compatible parts for Hilti, Makita, DeWalt, and Bosch." },
+    { "id": "clearance",  "name": "Clearance",     "icon": "tag",       "description": "End-of-line stock, job lots, and quick-sale items — grab a bargain." }
+  ],
+  "items": [
+    {
+      "id": "IT001",
+      "title": "Hilti TE 60-ATC Combihammer",
+      "category": "breakers",
+      "brand": "Hilti",
+      "price": 395,
+      "condition": "Good Working Order",
+      "description": "SDS Max rotary hammer with Active Torque Control. 8.8 joules impact energy. Ideal for heavy chiselling and drilling in concrete. Fully tested, no bits.",
+      "featured": true
+    },
+    {
+      "id": "IT002",
+      "title": "Hilti TE 500-AVR Demolition Hammer",
+      "category": "breakers",
+      "brand": "Hilti",
+      "price": 480,
+      "condition": "Good Working Order",
+      "description": "14.1 joule demolition hammer with AVR vibration reduction. Ready for heavy concrete breaking. Used condition, recently serviced.",
+      "featured": true
+    },
+    {
+      "id": "IT003",
+      "title": "Makita HM1214C 17kg Demolition Breaker",
+      "category": "breakers",
+      "brand": "Makita",
+      "price": 320,
+      "condition": "Working, Signs of Use",
+      "description": "17kg heavy-duty electric breaker, 1510W motor. Flat chisel and point chisel included. Solid working unit with normal site wear.",
+      "featured": false
+    },
+    {
+      "id": "IT004",
+      "title": "Bosch GBH 8-45 DV Rotary Hammer",
+      "category": "breakers",
+      "brand": "Bosch",
+      "price": 245,
+      "condition": "Good Working Order",
+      "description": "SDS Max rotary hammer, 8.8 joule impact energy. Variable speed, vibration control. Tested and ready to work.",
+      "featured": false
+    },
+    {
+      "id": "IT005",
+      "title": "Makita DHP484 18V Combi Drill Kit",
+      "category": "drills",
+      "brand": "Makita",
+      "price": 115,
+      "condition": "Good Working Order",
+      "description": "18V brushless combi drill with 2x 5Ah batteries and charger in MAKPAC case. Excellent condition, low usage.",
+      "featured": true
+    },
+    {
+      "id": "IT006",
+      "title": "DeWalt DCD796 18V XR Combi Drill",
+      "category": "drills",
+      "brand": "DeWalt",
+      "price": 95,
+      "condition": "Good Working Order",
+      "description": "XR brushless combi drill, 2Ah battery and charger included. 2-speed, 13mm chuck. Tested and working well.",
+      "featured": true
+    },
+    {
+      "id": "IT007",
+      "title": "Hilti SFH 18-A Drill Driver",
+      "category": "drills",
+      "brand": "Hilti",
+      "price": 140,
+      "condition": "Good Working Order",
+      "description": "18V Hilti cordless drill driver with 1x Li-ion battery and charger. Solid Hilti build quality at trade price.",
+      "featured": false
+    },
+    {
+      "id": "IT008",
+      "title": "Bosch GBH 2-26 DRE Rotary Hammer Drill",
+      "category": "drills",
+      "brand": "Bosch",
+      "price": 75,
+      "condition": "Working, Signs of Use",
+      "description": "SDS Plus 800W rotary hammer drill. 3-function mode: rotary, hammer, chisel. Tested and working. Normal wear marks.",
+      "featured": false
+    },
+    {
+      "id": "IT009",
+      "title": "Hilti VC 40-U Wet & Dry Vacuum",
+      "category": "vacuums",
+      "brand": "Hilti",
+      "price": 180,
+      "condition": "Good Working Order",
+      "description": "40L industrial wet & dry vacuum, 1400W. Class L filter. Ideal for heavy site clean-up. Filters included. Tested.",
+      "featured": true
+    },
+    {
+      "id": "IT010",
+      "title": "Makita VC4210L 42L Industrial Vac",
+      "category": "vacuums",
+      "brand": "Makita",
+      "price": 145,
+      "condition": "Good Working Order",
+      "description": "42L drum vacuum, auto start function. Takes standard M-class filters. Good clean unit, ready for site use.",
+      "featured": false
+    },
+    {
+      "id": "IT011",
+      "title": "DeWalt DCV586 54V FlexVolt Extractor",
+      "category": "vacuums",
+      "brand": "DeWalt",
+      "price": 195,
+      "condition": "Excellent",
+      "description": "M-class dust extractor, compatible with 54V FlexVolt batteries. Auto-clean filter. Near-new condition, minimal use.",
+      "featured": false
+    },
+    {
+      "id": "IT012",
+      "title": "Stephill SE3000P 2.8kVA Petrol Generator",
+      "category": "sitepower",
+      "brand": "Stephill",
+      "price": 425,
+      "condition": "Good Working Order",
+      "description": "2.8kVA / 2.2kW petrol generator. 110V and 230V outlets. UK-manufactured, solid workhorse. Serviced and starts first pull.",
+      "featured": true
+    },
+    {
+      "id": "IT013",
+      "title": "Stephill SE6000D 5.5kVA Diesel Generator",
+      "category": "sitepower",
+      "brand": "Stephill",
+      "price": 895,
+      "condition": "Good Working Order",
+      "description": "5.5kVA diesel generator, ideal for powering multiple tools simultaneously. 110V/230V outputs. Road-towable frame available separately.",
+      "featured": true
+    },
+    {
+      "id": "IT014",
+      "title": "110V Site Transformer 3kVA",
+      "category": "sitepower",
+      "brand": "Generic",
+      "price": 55,
+      "condition": "Working, Signs of Use",
+      "description": "Heavy-duty 3kVA 240V to 110V transformer. Metal cased with carry handle. Suitable for all 110V site tools.",
+      "featured": false
+    },
+    {
+      "id": "IT015",
+      "title": "Atlas Copco 2-Tonne Chain Block",
+      "category": "lifting",
+      "brand": "Atlas Copco",
+      "price": 85,
+      "condition": "Good Working Order",
+      "description": "2-tonne capacity chain block hoist with 3m lift. Galvanised chain, G80 rated. Inspected and tagged, ready to use.",
+      "featured": true
+    },
+    {
+      "id": "IT016",
+      "title": "Yale 1.5T Lever Hoist",
+      "category": "lifting",
+      "brand": "Yale",
+      "price": 68,
+      "condition": "Good Working Order",
+      "description": "1.5 tonne lever hoist / puller, 1.5m chain standard. Solid Yale quality at second-hand price. Fully tested.",
+      "featured": false
+    },
+    {
+      "id": "IT017",
+      "title": "Heavy-Duty Sack Truck / Barrow",
+      "category": "lifting",
+      "brand": "Generic",
+      "price": 35,
+      "condition": "Good Working Order",
+      "description": "Steel folding sack truck, 300kg capacity. Pneumatic tyres. Good condition, minimal rust. Ideal for yard or site.",
+      "featured": false
+    },
+    {
+      "id": "IT018",
+      "title": "DeWalt DWE7491 250mm Table Saw",
+      "category": "saws",
+      "brand": "DeWalt",
+      "price": 285,
+      "condition": "Good Working Order",
+      "description": "1850W table saw with rack-and-pinion fence system. 250mm blade. Riving knife and blade guard included. Tested and cutting true.",
+      "featured": true
+    },
+    {
+      "id": "IT019",
+      "title": "Makita LS0815 216mm Sliding Mitre Saw",
+      "category": "saws",
+      "brand": "Makita",
+      "price": 195,
+      "condition": "Good Working Order",
+      "description": "216mm sliding compound mitre saw, 1010W. Laser guide. Good blade, clean cuts. Site used, minor marks only.",
+      "featured": true
+    },
+    {
+      "id": "IT020",
+      "title": "Stihl TS410 Disc Cutter / Cut-Off Saw",
+      "category": "saws",
+      "brand": "Stihl",
+      "price": 260,
+      "condition": "Working, Signs of Use",
+      "description": "3.2kW petrol disc cutter for concrete, block, and pipe cutting. 300mm blade. Compression strong, cuts well. Normal site wear.",
+      "featured": false
+    },
+    {
+      "id": "IT021",
+      "title": "Hilti TE 60 Carbon Brush Set (x10 pairs)",
+      "category": "spareparts",
+      "brand": "Hilti",
+      "price": 28,
+      "condition": "New / Old Stock",
+      "description": "Genuine carbon brushes for Hilti TE 60 series breakers. Job lot of 10 pairs. New old stock, original packaging.",
+      "featured": false
+    },
+    {
+      "id": "IT022",
+      "title": "SDS Max Chisels & Drill Bits Mixed Lot",
+      "category": "spareparts",
+      "brand": "Mixed",
+      "price": 45,
+      "condition": "Used",
+      "description": "Assorted SDS Max accessories: flat chisels, point chisels, drill bits. Various brands, all usable. Collection as shown.",
+      "featured": false
+    },
+    {
+      "id": "IT023",
+      "title": "Makita 18V 3Ah Battery Twin Pack",
+      "category": "spareparts",
+      "brand": "Makita",
+      "price": 65,
+      "condition": "Good Working Order",
+      "description": "Two genuine Makita 18V 3Ah Li-ion batteries. Both hold charge and cycle correctly. No charger included.",
+      "featured": false
+    },
+    {
+      "id": "IT024",
+      "title": "DeWalt DCF887 18V Impact Driver — Clearance",
+      "category": "clearance",
+      "brand": "DeWalt",
+      "price": 58,
+      "condition": "Working, Signs of Use",
+      "description": "XR brushless impact driver. Shell has impact marks but mechanism is solid. No battery. Clear-out price — as seen.",
+      "featured": false
+    },
+    {
+      "id": "IT025",
+      "title": "Site Equipment Job Lot — Tools & Fixings",
+      "category": "clearance",
+      "brand": "Mixed",
+      "price": 75,
+      "condition": "Mixed Condition",
+      "description": "Collection of miscellaneous site tools and fixings — drills, spanners, cable reels, assorted fixings. Sold as seen. Collection only.",
+      "featured": false
+    },
+    {
+      "id": "IT026",
+      "title": "Kango 637 Rotary Breaker",
+      "category": "clearance",
+      "brand": "Kango",
+      "price": 65,
+      "condition": "Working, Signs of Use",
+      "description": "Classic Kango rotary breaker in working order. Heavy surface rust but electrically sound. Clearance price. Buyer collects.",
+      "featured": false
+    }
+  ]
+}

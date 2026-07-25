@@ -1,0 +1,65 @@
+Build a static, high-converting website for "Infratrade Limited", a North West UK supplier of high-quality pre-owned small plant machinery and commercial trade tools. 
+
+IMPORTANT ARCHITECTURE REQUIREMENT:
+The website MUST be 100% static (Vanilla HTML, CSS/Tailwind, and Vanilla JavaScript with Fetch API). Do NOT build an Express, Flask, or Node.js server. The site must be ready to be pushed directly to GitHub and hosted on GitHub Pages.
+
+---
+
+### Target Audience & Tone
+Target audience: Tradespeople, site contractors, builders, and groundworkers in the North West.
+Tone: Direct, rugged, clear, masculine, and no-nonsense. Focus on equipment specs, price transparency, and fast one-click WhatsApp contact.
+
+---
+
+### Business & Legal Information
+- Company Name: Infratrade Limited
+- Location: North West, England, UK
+- WhatsApp / Phone: 07909329693 (Format link: https://wa.me/447909329693)
+- Email: contactinfratrade@gmail.com
+- Company Number: 15903849
+- Payment Terms: Cash on Collection or Direct Bank Transfer
+
+---
+
+### Technical File Structure Needed for GitHub Pages
+Create the following lightweight static structure:
+1. `index.html` (Main landing page, categories grid, featured stock)
+2. `category.html` (Dynamic template reading category parameter from URL e.g. `category.html?cat=Breakers`)
+3. `inventory_categories.json` (Local JSON database containing stock listings)
+4. `app.js` (Client-side JavaScript to fetch `inventory_categories.json`, filter by category, and render cards)
+5. `style.css` (Or Tailwind CSS via CDN link)
+6. `/assets/` (Folder for company logo and machinery icons)
+
+---
+
+### Features & User Experience
+1. **Dynamic Client-Side Data Rendering:**
+   - On page load, `app.js` fetches `inventory_categories.json`.
+   - Calculate live category counts and minimum price ranges dynamically.
+   - On `category.html`, filter and display all stock items matching that category.
+
+2. **One-Click WhatsApp Lead Generation:**
+   - Every equipment card must feature a prominent green button: `[ Inquire on WhatsApp ]`.
+   - Pre-fill WhatsApp message when clicked: 
+     `https://wa.me/447909329693?text=Hi%20Infratrade,%20I'm%20interested%20in%20the%20[Item%20Title]%20listed%20at%20[Price]%20(Ref:%20[Item%20ID]).%20Is%20this%20still%20available?`
+   - Category headers must include a general inquiry button: `[ Ask About Today's Fresh Stock ]`.
+
+3. **Floating Mobile WhatsApp Button:**
+   - Fixed floating WhatsApp icon at the bottom-right of every screen.
+
+4. **Trust & Local Yard Badges:**
+   - Display clear trust indicators:
+     • North West Collection & Delivery Available
+     • Tested & Working Trade Equipment
+     • Payment via Cash or Bank Transfer
+     • UK Registered Business (No: 15903849)
+
+---
+
+### Page Architecture Details
+- **Header:** Infratrade Ltd logo / text brand name, WhatsApp CTA button top-right, navigation links.
+- **Hero Section:** Bold headline: *"Pre-Owned Commercial Plant & Machinery — Direct from North West Yard"*. Subtitle: *"Hilti, Makita, Stephill, DeWalt, Atlas Copco & more at trade prices."*
+- **Category Grid:** Visual cards linking to main categories (Breakers, Drills, Vacuums, Site Power, Lifting Gear, Saws, Spare Parts, Clearance).
+- **Featured Live Stock:** Display 8–12 highlighted stock cards directly on `index.html`.
+- **Buying Process Section (3 Steps):** 1. Find Equipment $\rightarrow$ 2. Text Yard Team on WhatsApp $\rightarrow$ 3. Collect/Pay Cash or Transfer.
+- **Footer:** Full company legal details, company number 15903849, contact details, and payment policy.

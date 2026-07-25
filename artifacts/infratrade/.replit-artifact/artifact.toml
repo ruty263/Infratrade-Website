@@ -1,0 +1,27 @@
+kind = "web"
+previewPath = "/"
+title = "Infratrade Limited"
+version = "1.0.0"
+id = "artifacts/infratrade"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18468
+
+[services.development]
+run = "pnpm --filter @workspace/infratrade run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/infratrade", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/infratrade/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18468"
+BASE_PATH = "/"
