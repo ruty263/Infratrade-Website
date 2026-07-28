@@ -211,9 +211,9 @@ body {
 .hero-photo-img {
   display: block;
   width: 100%;
-  height: 420px;
+  height: 360px;
   object-fit: cover;
-  object-position: center top;
+  object-position: 50% 15%;
 }
 
 .hero-photo-caption {
