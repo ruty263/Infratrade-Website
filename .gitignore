@@ -47,3 +47,23 @@ Thumbs.db
 # Replit
 .cache/
 .local/
+.agents/
+.replit
+.replitignore
+replit.nix
+.upm/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+.pythonlibs/
+uv.lock
+pyproject.toml
+
+# Uploaded assets (not part of the deployable site)
+attached_assets/
+
+# Temporary scripts
+fetch_images.py
