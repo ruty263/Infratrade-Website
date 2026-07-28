@@ -166,9 +166,71 @@ body {
 }
 
 .hero-inner {
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
   position: relative;
+}
+
+/* ── Hero split layout ───────────────────────────────────────────────────────*/
+.hero-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.hero-content {
+  min-width: 0;
+}
+
+.hero-photo-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-photo-frame {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(59,91,217,0.18), 0 2px 8px rgba(0,0,0,0.10);
+  border: 3px solid var(--blue);
+  max-width: 520px;
+  width: 100%;
+}
+
+.hero-photo-frame::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 60%, rgba(10,17,46,0.55) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-photo-img {
+  display: block;
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.hero-photo-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.7rem 1rem;
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
 }
 
 .hero-badge {
@@ -1141,6 +1203,19 @@ body {
 }
 
 /* ── Responsive ──────────────────────────────────────────────────────────────*/
+@media (max-width: 900px) {
+  .hero-split {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .hero-photo-wrap {
+    order: -1;          /* photo above text on tablet/mobile */
+  }
+  .hero-photo-img {
+    height: 300px;
+  }
+}
+
 @media (max-width: 768px) {
   .header-nav { display: none; }
   .logo-sub   { display: none; }
