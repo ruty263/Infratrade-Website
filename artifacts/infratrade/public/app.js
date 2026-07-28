@@ -338,7 +338,7 @@ function renderStockCard(item, container) {
         </div>
         <a class="btn-wa-card" href="${waHref}" target="_blank" rel="noopener">
           ${ICONS.whatsapp}
-          <span>💬 WhatsApp Yard for Details &amp; Photos</span>
+          <span>💬 WhatsApp for Best Price &amp; Photos</span>
         </a>
       </div>
     </div>
@@ -505,7 +505,7 @@ function renderHomepageCard(item, container) {
         </div>
         <a class="btn-wa-card" href="${waHref}" target="_blank" rel="noopener">
           ${ICONS.whatsapp}
-          <span>💬 WhatsApp Yard for Details &amp; Photos</span>
+          <span>💬 WhatsApp for Best Price &amp; Photos</span>
         </a>
       </div>
     </div>
