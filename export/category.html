@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Category | Infratrade Limited — Pre-Owned Plant &amp; Machinery | Warrington</title>
+  <meta name="description" content="Browse pre-owned plant machinery and trade tools by category. Based in Warrington, North West England." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body data-page="category">
+
+  <!-- ── Header ─────────────────────────────────── -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="index.html">
+        <img src="./assets/logo.jpeg" alt="Infratrade Limited" class="logo-img"
+             onerror="this.style.display='none';document.getElementById('logo-text-cat').style.display='block'">
+        <span id="logo-text-cat" style="display:none;font-weight:900;font-size:1.1rem;color:#0F172A;letter-spacing:-0.3px">Infratrade</span>
+        <span class="logo-sub">Trade Tools &amp; Plant — Warrington, NW England</span>
+      </a>
+
+      <nav class="header-nav">
+        <a href="index.html#search-section">Search</a>
+        <a href="index.html#categories">Categories</a>
+        <a href="index.html#stock">Stock</a>
+        <a href="index.html#how-it-works">How It Works</a>
+      </nav>
+
+      <a class="btn-whatsapp-header"
+         href="https://wa.me/447909329693?text=Hi%20Infratrade%2C%20I%27d%20like%20to%20enquire%20about%20your%20current%20stock."
+         target="_blank" rel="noopener">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+        WhatsApp Us
+      </a>
+    </div>
+  </header>
+
+  <!-- ── Category hero ───────────────────────────── -->
+  <div class="cat-hero">
+    <div class="cat-hero-inner">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+        <a href="index.html#categories">Categories</a>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+        <span id="breadcrumb-cat">Category</span>
+      </nav>
+
+      <div class="section-label">Browse Stock</div>
+      <h1 class="section-title" id="cat-page-title" style="margin-bottom:0.4rem">Loading&hellip;</h1>
+      <p id="cat-page-count" style="color:var(--blue);font-size:0.88rem;font-weight:700;margin-bottom:0.5rem;letter-spacing:0.2px"></p>
+      <p id="cat-page-desc" style="color:var(--muted);max-width:560px;font-size:0.9rem;line-height:1.7"></p>
+    </div>
+  </div>
+
+  <!-- ── Controls + stock grid ───────────────────── -->
+  <section class="section">
+    <div class="container">
+
+      <!-- Inquiry bar (revealed once data loads) -->
+      <div class="cat-inquiry-bar" id="category-content" style="display:none">
+        <div>
+          <div class="cat-inquiry-text">Not sure what you need? Ask the yard.</div>
+          <div class="cat-inquiry-sub">UK &amp; international shipping available. WhatsApp for best price, live availability &amp; yard photos.</div>
+        </div>
+        <a class="btn-whatsapp-sm" id="wa-category-inquiry" href="https://wa.me/447909329693" target="_blank" rel="noopener">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+          Ask About Today's Fresh Stock
+        </a>
+      </div>
+
+      <!-- Sort control -->
+      <div class="cat-controls" id="cat-controls" style="display:none">
+        <label class="sort-label" for="sort-select">Sort by:</label>
+        <select id="sort-select" class="sort-select">
+          <option value="default">Default order</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="title">Title A–Z</option>
+        </select>
+      </div>
+
+      <!-- Loading -->
+      <div id="category-loading" class="loading-state">
+        <div class="loading-spinner"></div>
+        <p>Loading stock&hellip;</p>
+      </div>
+
+      <!-- Stock grid -->
+      <div id="stock-grid" class="stock-grid"></div>
+
+      <!-- Back -->
+      <div style="text-align:center;margin-top:2.5rem">
+        <a href="index.html#categories" class="btn-ghost">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+          All Categories
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Customer Reviews ────────────────────────── -->
+  <section class="section reviews-section">
+    <div class="container">
+      <h2 class="section-title">What Our Customers Say</h2>
+      <p class="section-sub">Genuine feedback from trade buyers across the UK.</p>
+
+      <div class="reviews-grid">
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"All handled with care! Good packaging and very fast delivery. Really recommend this seller"</p>
+          <div class="review-buyer">andabbat_89</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"Great item"</p>
+          <div class="review-item-tag">Makita 8406 110V Diamond Core Drill | Heavy Duty Masonry Drill | With Carry Case</div>
+          <div class="review-buyer">Camp901736</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"Excellent and as described, thanks"</p>
+          <div class="review-item-tag">TSURUMI LB-480 Submersible Water Pump 110V 50mm Outlet Working Used</div>
+          <div class="review-buyer">Totalpiling</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"Good communication. Did all they could to rectify delivery issue. Product as described. Many thanks"</p>
+          <div class="review-item-tag">BULLFINCH 1400 PROPANE GAS SPACE BIN HEATER USED INDUSTRIAL WORKSHOP FACTORY</div>
+          <div class="review-buyer">Carpy459</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"excellent service"</p>
+          <div class="review-item-tag">Damp Proof Course Injector 240V DPC Injector Pump</div>
+          <div class="review-buyer">Dampm76</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"Good description on advert very happy with the pallet truck, even delivered it for me thank you would buy from this company again"</p>
+          <div class="review-item-tag">Pramac GS25 Manual Hand Pallet Pump Truck, Lifter by Pramac Series, 2500 kg</div>
+          <div class="review-buyer">Whit9039</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"Great communication. A pleasure to do business with."</p>
+          <div class="review-item-tag">FORD TRANSIT MK6 MK7 2000 - 2015 REAR DOOR LATCH LOCK CABLE LOWER LEFT</div>
+          <div class="review-buyer">OrientAutos</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"Great. A+"</p>
+          <div class="review-item-tag">Hiretech HT8 Floor Sander</div>
+          <div class="review-buyer">ClankSpecialist</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"Great service"</p>
+          <div class="review-item-tag">Hilti TE 22 Rotary Hammer Drill SDS Plus 110V – Professional Concrete Masonry</div>
+          <div class="review-buyer">Scaffolder110</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"Great value bargain thank you"</p>
+          <div class="review-item-tag">DUSTCONTROL DC TROMB 400 H CLASS DUST EXTRACTOR 110V</div>
+          <div class="review-buyer">Cliff&amp;Tracey</div>
+        </div>
+
+        <div class="review-card review-card--featured">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"On receiving my purchase from this seller the outer casing for my 110v transformer was damaged from transit. I contacted the seller. The lady delt with was friendly, respectable and efficient, wth no extra cost? She organised a replacement within week. Makes such a difference when you get to deal with the right people. Thank you. Recommended, a good seller."</p>
+          <div class="review-item-tag">STEP DOWN TRANSFORMER 230V TO 110V 2 SOCKETS ( 1.5KVA EACH, 3KVA TOTAL)</div>
+          <div class="review-buyer">Gorpal_79</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"First class product and service"</p>
+          <div class="review-item-tag">Dimplex AC3N 3kW Air Curtain Over Door Wall Fan Heater Indoor Warm Shops 3000W</div>
+          <div class="review-buyer">Heisenberg11111</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"God servis all in good working order"</p>
+          <div class="review-item-tag">Grundfos Watermill Freeflow Central Heating Powerflushing Flush Unit</div>
+          <div class="review-buyer">Xheimsdoskja</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"very pleased"</p>
+          <div class="review-item-tag">UKCA TRANSFORMER 110V TO 24V FOR WORKLIGHTS LOW VOLTAGE LIGHTS NEVER USED</div>
+          <div class="review-buyer">carfast59fastcar</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"Excellent Seller!! A+++"</p>
+          <div class="review-item-tag">ELITE AC1600 BTU AIR CONDITIONING UNIT 90M3 SHOPS GYMS LARGE ROOMS ETC</div>
+          <div class="review-buyer">Markyd3</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"Responded to questions promptly, item as described in listing, arrived within time suggested, good value for money as up and running in my workshop now. Great aftersales service too."</p>
+          <div class="review-item-tag">PARTS WASHER CLEANER DEGREASER 240V WITH LIGHT AND BRUSH</div>
+          <div class="review-buyer">Ttaytocarl</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"Very correct and co-operative seller"</p>
+          <div class="review-item-tag">RHINO ROOF BARS</div>
+          <div class="review-buyer">Aiwanhow</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── B2B trust banner ───────────────────────── -->
+  <div class="b2b-trust-banner">
+    <div class="b2b-trust-inner">
+      <span class="b2b-stars">★★★★★</span>
+      <span class="b2b-pipe">|</span>
+      <span>5-Star Rated Commercial Supplier</span>
+      <span class="b2b-pipe">|</span>
+      <span>Verified Customer Reviews</span>
+      <span class="b2b-pipe">|</span>
+      <span>Tested Ex-Fleet Equipment</span>
+      <span class="b2b-pipe">|</span>
+      <span>🚚 UK &amp; International Shipping Available</span>
+    </div>
+  </div>
+
+  <!-- ── Trust bar ───────────────────────────────── -->
+  <div class="trust-bar">
+    <div class="trust-inner">
+      <div class="trust-item"><div class="dot"></div>Based in Warrington, North West</div>
+      <div class="trust-item"><div class="dot"></div>UK &amp; International Shipping Available</div>
+      <div class="trust-item"><div class="dot"></div>Tested &amp; Working Trade Equipment</div>
+      <div class="trust-item"><div class="dot"></div>Cash or Direct Bank Transfer</div>
+      <div class="trust-item"><div class="dot"></div>UK Registered — Co. No. 15903849</div>
+    </div>
+  </div>
+
+  <!-- ── Footer ──────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <img src="./assets/logo.jpeg" alt="Infratrade Limited" class="footer-logo-img"
+               onerror="this.style.display='none'">
+          <p class="footer-desc">
+            Pre-owned commercial plant machinery and trade tools.
+            Based in Warrington, North West England. No middleman. Trade prices.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Categories</div>
+          <ul class="footer-links">
+            <li><a href="category.html?cat=Pre-Owned%20Breakers%20%26%20Demolition%20Tools">Breakers</a></li>
+            <li><a href="category.html?cat=Drills%20%26%20Rotary%20Hammers">Drills</a></li>
+            <li><a href="category.html?cat=Workshop%20Vacuums%20%26%20Dust%20Extraction">Vacuums</a></li>
+            <li><a href="category.html?cat=Site%20Power%2C%20Generators%20%26%20Transformers">Site Power</a></li>
+            <li><a href="category.html?cat=Saws%2C%20Cutting%20%26%20Fastening%20Tools">Saws &amp; Cutting</a></li>
+            <li><a href="category.html?cat=Lifting%2C%20Access%20%26%20Site%20Handling">Lifting &amp; Access</a></li>
+            <li><a href="category.html?cat=Workshop%20Tools%2C%20Lighting%20%26%20Test%20Gear">Workshop Tools</a></li>
+            <li><a href="category.html?cat=Clearance%20%26%20General%20Clearance%20Items">Clearance</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Contact &amp; Location</div>
+          <div class="footer-contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Warrington, North West England, UK</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+            <span><a href="https://wa.me/447909329693" target="_blank" rel="noopener">WhatsApp: 07909 329693</a></span>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            <span><a href="mailto:contactinfratrade@gmail.com">contactinfratrade@gmail.com</a></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2025 Infratrade Limited &mdash; Company No. 15903849 &mdash; Registered in England &amp; Wales</div>
+        <div>All stock sold as seen. Buyer's responsibility to inspect prior to purchase.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── Floating WhatsApp ────────────────────────── -->
+  <a class="float-wa"
+     href="https://wa.me/447909329693?text=Hi%20Infratrade%2C%20I%27d%20like%20to%20enquire%20about%20your%20current%20stock."
+     target="_blank" rel="noopener" aria-label="WhatsApp us">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+  </a>
+
+  <script src="./app.js"></script>
+
+  <!-- Reveal sort control once JS runs -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new MutationObserver(() => {
+        const content = document.getElementById('category-content');
+        const controls = document.getElementById('cat-controls');
+        if (content && content.style.display !== 'none' && controls) {
+          controls.style.display = 'flex';
+          observer.disconnect();
+        }
+      });
+      const target = document.getElementById('category-content');
+      if (target) observer.observe(target, { attributes: true, attributeFilter: ['style'] });
+    });
+  </script>
+</body>
+</html>
