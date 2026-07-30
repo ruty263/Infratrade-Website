@@ -315,6 +315,7 @@ function renderStockCard(item, container) {
   const waHref = waLink(cardWaMsg(item));
   const meta   = catMeta(item.category);
   const badges = extractBadges(item.title);
+  const hasImg = item.image && item.image.length > 0;
 
   const badgeHtml = badges.map(b =>
     `<span class="sc-badge sc-badge--${b.type}">${escHtml(b.text)}</span>`
@@ -323,6 +324,11 @@ function renderStockCard(item, container) {
   const card = document.createElement('div');
   card.className = 'stock-card';
   card.innerHTML = `
+    ${hasImg ? `
+    <div class="sc-img-wrap">
+      <img class="sc-img" src="${escHtml(item.image)}" alt="${escHtml(item.title)}" loading="lazy"
+           onerror="this.closest('.sc-img-wrap').style.display='none'">
+    </div>` : ''}
     <div class="sc-body">
       <div class="sc-top-row">
         <div class="sc-cat-label">${escHtml(meta.short)}</div>
@@ -330,7 +336,7 @@ function renderStockCard(item, container) {
       </div>
       <div class="sc-title">${escHtml(item.title)}</div>
       ${badges.length ? `<div class="sc-badges">${badgeHtml}</div>` : ''}
-      <div class="sc-photo-badge">📸 Text Yard for Live Photos &amp; Video</div>
+      ${!hasImg ? `<div class="sc-photo-badge">📸 Text Yard for Live Photos &amp; Video</div>` : ''}
       <div class="sc-footer">
         <div class="sc-price-wrap">
           <div class="sc-price">${price}</div>
@@ -482,6 +488,7 @@ function renderHomepageCard(item, container) {
   const waHref = waLink(cardWaMsg(item));
   const meta   = catMeta(item.category);
   const badges = extractBadges(item.title);
+  const hasImg = item.image && item.image.length > 0;
 
   const badgeHtml = badges.map(b =>
     `<span class="sc-badge sc-badge--${b.type}">${escHtml(b.text)}</span>`
@@ -490,6 +497,11 @@ function renderHomepageCard(item, container) {
   const card = document.createElement('div');
   card.className = 'stock-card';
   card.innerHTML = `
+    ${hasImg ? `
+    <div class="sc-img-wrap">
+      <img class="sc-img" src="${escHtml(item.image)}" alt="${escHtml(item.title)}" loading="lazy"
+           onerror="this.closest('.sc-img-wrap').style.display='none'">
+    </div>` : ''}
     <div class="sc-body">
       <div class="sc-top-row">
         <div class="sc-cat-label">${escHtml(meta.short)}</div>
@@ -497,7 +509,7 @@ function renderHomepageCard(item, container) {
       </div>
       <div class="sc-title">${escHtml(item.title)}</div>
       ${badges.length ? `<div class="sc-badges">${badgeHtml}</div>` : ''}
-      <div class="sc-photo-badge">📸 Text Yard for Live Photos &amp; Video</div>
+      ${!hasImg ? `<div class="sc-photo-badge">📸 Text Yard for Live Photos &amp; Video</div>` : ''}
       <div class="sc-footer">
         <div class="sc-price-wrap">
           <div class="sc-price">${price}</div>
