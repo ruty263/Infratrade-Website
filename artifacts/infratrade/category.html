@@ -330,5 +330,9 @@
       if (target) observer.observe(target, { attributes: true, attributeFilter: ['style'] });
     });
   </script>
+  <!-- Lightbox modal -->
+  <div id="imageModal" class="modal" onclick="this.style.display='none'">
+    <img id="modalImg" class="modal-content" src="" alt="Enlarged view">
+  </div>
 </body>
 </html>

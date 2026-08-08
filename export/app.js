@@ -10,6 +10,20 @@ const WA_NUMBER = '447909329693';
 const WA_BASE   = `https://wa.me/${WA_NUMBER}`;
 const JSON_URL  = './inventory_categories.json';
 
+// ── Lightbox ──────────────────────────────────────────────────────────────────
+function openModal(src) {
+  document.getElementById('modalImg').src = src;
+  document.getElementById('imageModal').style.display = 'flex';
+}
+
+// Close on Escape key
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    const m = document.getElementById('imageModal');
+    if (m) m.style.display = 'none';
+  }
+});
+
 // ── Category metadata ─────────────────────────────────────────────────────────
 // Maps the exact category strings from generate_json.py → display data + images
 
@@ -327,6 +341,7 @@ function renderStockCard(item, container) {
     ${hasImg ? `
     <div class="sc-img-wrap">
       <img class="sc-img" src="${escHtml(item.image)}" alt="${escHtml(item.title)}" loading="lazy"
+           title="Click to enlarge" onclick="openModal('${escHtml(item.image)}')"
            onerror="this.closest('.sc-img-wrap').style.display='none'">
     </div>` : ''}
     <div class="sc-body">
@@ -500,6 +515,7 @@ function renderHomepageCard(item, container) {
     ${hasImg ? `
     <div class="sc-img-wrap">
       <img class="sc-img" src="${escHtml(item.image)}" alt="${escHtml(item.title)}" loading="lazy"
+           title="Click to enlarge" onclick="openModal('${escHtml(item.image)}')"
            onerror="this.closest('.sc-img-wrap').style.display='none'">
     </div>` : ''}
     <div class="sc-body">
