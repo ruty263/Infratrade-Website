@@ -2,10 +2,32 @@ import json
 import pandas as pd
 
 # Load your uploaded eBay CSV
-csv_file = 'attached_assets/eBay-all-active-listings-report-2026-07-25-13316632938_1784982589257.csv'
+csv_file = 'attached_assets/eBay-all-active-listings-report-2026-08-10-13320211566_1786389313267.csv'
 df = pd.read_csv(csv_file, encoding='utf-8', encoding_errors='ignore')
 unique_df = df.drop_duplicates(subset=['Item number']).copy()
 unique_df['CSV_Row'] = unique_df.index + 2
+
+# ── Exclusion filter — remove non-trade items ─────────────────────────────────
+_title = unique_df['Title'].str.lower().fillna('')
+_cat   = unique_df['eBay category 1 name'].str.lower().fillna('')
+
+exclude_mask = (
+    # Books / music scores
+    _title.str.contains(r'\bbook\b|music score|sheet music', regex=True)
+    | _cat.str.contains(r'\bbooks\b', regex=True)
+    # Luminess cosmetics
+    | _title.str.contains('luminess', regex=False)
+    # Kids clothing / girls dresses
+    | _title.str.contains(r"girl|dress|children'?s clothing|kids.*cloth|toddler.*cloth", regex=True)
+    | _cat.str.contains(r'girls.*dress|kids.*fashion|children.*cloth', regex=True)
+    # Kids bikes / ride-ons already excluded by category structure but belt-and-braces:
+    | (_cat.str.contains('bikes', regex=False) & _title.str.contains(r'kid|child|toddler|baby|babies|balance bike', regex=True))
+    | _cat.str.contains('electric & battery powered', regex=False)  # ride-on toy cars
+)
+
+before = len(unique_df)
+unique_df = unique_df[~exclude_mask].copy()
+print(f"Excluded {before - len(unique_df)} non-trade items ({len(unique_df)} remaining)")
 
 
 def categorize(row):
@@ -263,7 +285,13 @@ with open('inventory_categories.json', 'w', encoding='utf-8') as f:
   json.dump(replit_data, f, indent=2)
 
 print(
-    "SUCCESS! Created 'inventory_categories.json' with all",
+    "SUCCESS! Created 'inventory_categories.json' with",
     len(replit_data),
     'items.',
 )
+
+# Print category breakdown
+from collections import Counter
+cats = Counter(i['category'] for i in replit_data)
+for cat, count in sorted(cats.items()):
+    print(f"  {cat}: {count}")

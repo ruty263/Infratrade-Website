@@ -1,7 +1,7 @@
 /* ============================================================
    INFRATRADE LIMITED — app.js
    Loads real eBay inventory from inventory_categories.json.
-   All 569 items, fully client-side, static-site ready.
+   Fully client-side, static-site ready.
    ============================================================ */
 
 'use strict';
