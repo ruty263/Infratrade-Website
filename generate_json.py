@@ -2,7 +2,7 @@ import json
 import pandas as pd
 
 # Load your uploaded eBay CSV
-csv_file = 'attached_assets/eBay-all-active-listings-report-2026-08-10-13320211566_1786389313267.csv'
+csv_file = 'attached_assets/eBay-all-active-listings-report-2026-09-16-12346230428_1789560242960.csv'
 df = pd.read_csv(csv_file, encoding='utf-8', encoding_errors='ignore')
 unique_df = df.drop_duplicates(subset=['Item number']).copy()
 unique_df['CSV_Row'] = unique_df.index + 2
