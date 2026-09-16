@@ -13,7 +13,7 @@ _cat   = unique_df['eBay category 1 name'].str.lower().fillna('')
 
 exclude_mask = (
     # Books / music scores
-    _title.str.contains(r'\bbook\b|music score|sheet music', regex=True)
+    _title.str.contains(r'\bbooks?\b|photobook|music score|sheet music', regex=True)
     | _cat.str.contains(r'\bbooks\b', regex=True)
     # Luminess cosmetics
     | _title.str.contains('luminess', regex=False)
