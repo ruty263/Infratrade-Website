@@ -18,8 +18,31 @@ if (!isBuild) {
 const port = Number(rawPort ?? 3000);
 const basePath = process.env.BASE_PATH ?? '/';
 
+const productDirectoryIndex = {
+  name: 'product-directory-index',
+  enforce: 'pre' as const,
+  configureServer(server: { middlewares: { use: (handler: (req: { url?: string }, res: unknown, next: () => void) => void) => void } }) {
+    server.middlewares.use((req, _res, next) => {
+      if (req.url && /^\/product\/[^/?]+\/?$/.test(req.url)) {
+        req.url = `${req.url.replace(/\/?$/, '/')}index.html`;
+      }
+      next();
+    });
+  },
+  configurePreviewServer(server: { middlewares: { use: (handler: (req: { url?: string }, res: unknown, next: () => void) => void) => void } }) {
+    server.middlewares.use((req, _res, next) => {
+      if (req.url && /^\/product\/[^/?]+\/?$/.test(req.url)) {
+        req.url = `${req.url.replace(/\/?$/, '/')}index.html`;
+      }
+      next();
+    });
+  },
+};
+
 export default defineConfig({
   base: basePath,
+  appType: 'mpa',
+  plugins: [productDirectoryIndex],
   root: path.resolve(import.meta.dirname),
   publicDir: 'public',
   build: {

@@ -595,6 +595,21 @@ body {
   transition: opacity 0.2s ease;
 }
 
+.sc-product-image-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.sc-product-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.sc-product-link:hover {
+  color: var(--blue);
+}
+
 .stock-card:hover .sc-img {
   opacity: 0.88;
 }
@@ -942,6 +957,159 @@ body {
   line-height: 1.5;
 }
 
+/* ── Product detail pages ─────────────────────────────────────────────────────*/
+.product-page {
+  background: var(--bg);
+  min-height: calc(100vh - 80px);
+  padding: 2.5rem 1.25rem 4rem;
+}
+
+.product-page-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.product-detail {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+  gap: 3rem;
+  align-items: start;
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.product-detail-media {
+  min-width: 0;
+  background: var(--bg);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.product-image-link {
+  display: block;
+}
+
+.product-detail-image {
+  display: block;
+  width: 100%;
+  max-height: 620px;
+  object-fit: contain;
+  background: #f9f9f9;
+}
+
+.product-image-empty {
+  min-height: 360px;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.product-detail-content h1 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2rem, 4vw, 3.3rem);
+  line-height: 1.05;
+  color: var(--text);
+  margin: 0.35rem 0 0.65rem;
+}
+
+.product-reference {
+  color: var(--muted2);
+  font-size: 0.78rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.product-status {
+  display: inline-flex;
+  padding: 0.4rem 0.75rem;
+  border-radius: 100px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.product-status--active {
+  color: #126b3a;
+  background: #e5f8ed;
+}
+
+.product-status--unavailable {
+  color: #7a4a12;
+  background: #fff2d9;
+}
+
+.product-detail-price {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 2.6rem;
+  color: var(--text);
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.product-detail-description {
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+.product-specs {
+  border-top: 1px solid var(--border);
+  margin: 0 0 1.5rem;
+}
+
+.product-specs > div {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 1rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.82rem;
+}
+
+.product-specs dt {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.product-specs dd {
+  color: var(--text);
+  margin: 0;
+}
+
+.product-detail-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.site-footer {
+  background: var(--text);
+  color: rgba(255,255,255,0.75);
+  padding: 1.2rem 1.25rem;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: 0.78rem;
+}
+
+.footer-inner a {
+  color: #fff;
+  text-decoration: none;
+}
+
 /* ── Contact strip ───────────────────────────────────────────────────────────*/
 .contact-strip {
   background: var(--blue);
@@ -1282,6 +1450,16 @@ body {
   .contact-strip-actions { justify-content: center; }
 
   .sc-img-wrap { height: 160px; }
+
+  .product-page { padding: 1.5rem 1rem 3rem; }
+  .product-detail {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+  .product-detail-content h1 { font-size: 2.2rem; }
+  .product-specs > div { grid-template-columns: 120px 1fr; }
+  .footer-inner { flex-direction: column; }
 }
 
 @media (max-width: 420px) {

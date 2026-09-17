@@ -339,17 +339,21 @@ function renderStockCard(item, container) {
   card.className = 'stock-card';
   card.innerHTML = `
     ${hasImg ? `
-    <div class="sc-img-wrap">
-      <img class="sc-img" src="${escHtml(item.image)}" alt="${escHtml(item.title)}" loading="lazy"
-           title="Click to enlarge" onclick="openModal('${escHtml(item.image)}')"
-           onerror="this.closest('.sc-img-wrap').style.display='none'">
-    </div>` : ''}
+    <a class="sc-product-image-link" href="${productUrl(item)}"
+       aria-label="View ${escHtml(item.title)}"
+       onclick="if (!event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey) { event.preventDefault(); openModal('${escHtml(item.image)}'); }">
+      <div class="sc-img-wrap">
+        <img class="sc-img" src="${escHtml(item.image)}" alt="${escHtml(item.title)}" loading="lazy"
+             title="Click to enlarge"
+             onerror="this.closest('.sc-img-wrap').style.display='none'">
+      </div>
+    </a>` : ''}
     <div class="sc-body">
       <div class="sc-top-row">
         <div class="sc-cat-label">${escHtml(meta.short)}</div>
         <div class="sc-ref">ID: ${escHtml(item.item_id)}</div>
       </div>
-      <div class="sc-title">${escHtml(item.title)}</div>
+      <div class="sc-title"><a class="sc-product-link" href="${productUrl(item)}">${escHtml(item.title)}</a></div>
       ${badges.length ? `<div class="sc-badges">${badgeHtml}</div>` : ''}
       ${!hasImg ? `<div class="sc-photo-badge">📸 Text Yard for Live Photos &amp; Video</div>` : ''}
       <div class="sc-footer">
@@ -369,6 +373,23 @@ function renderStockCard(item, container) {
 
 function escHtml(s) {
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function productSlug(item) {
+  const base = String(item.title || 'product')
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/&/g, ' and ')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 100)
+    .replace(/-+$/g, '') || 'product';
+  return `${base}-${item.item_id}`;
+}
+
+function productUrl(item) {
+  return `product/${productSlug(item)}/`;
 }
 
 // ── Category grid (index.html) ────────────────────────────────────────────────
@@ -513,17 +534,21 @@ function renderHomepageCard(item, container) {
   card.className = 'stock-card';
   card.innerHTML = `
     ${hasImg ? `
-    <div class="sc-img-wrap">
-      <img class="sc-img" src="${escHtml(item.image)}" alt="${escHtml(item.title)}" loading="lazy"
-           title="Click to enlarge" onclick="openModal('${escHtml(item.image)}')"
-           onerror="this.closest('.sc-img-wrap').style.display='none'">
-    </div>` : ''}
+    <a class="sc-product-image-link" href="${productUrl(item)}"
+       aria-label="View ${escHtml(item.title)}"
+       onclick="if (!event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey) { event.preventDefault(); openModal('${escHtml(item.image)}'); }">
+      <div class="sc-img-wrap">
+        <img class="sc-img" src="${escHtml(item.image)}" alt="${escHtml(item.title)}" loading="lazy"
+             title="Click to enlarge"
+             onerror="this.closest('.sc-img-wrap').style.display='none'">
+      </div>
+    </a>` : ''}
     <div class="sc-body">
       <div class="sc-top-row">
         <div class="sc-cat-label">${escHtml(meta.short)}</div>
         <div class="sc-ref">ID: ${escHtml(item.item_id)}</div>
       </div>
-      <div class="sc-title">${escHtml(item.title)}</div>
+      <div class="sc-title"><a class="sc-product-link" href="${productUrl(item)}">${escHtml(item.title)}</a></div>
       ${badges.length ? `<div class="sc-badges">${badgeHtml}</div>` : ''}
       ${!hasImg ? `<div class="sc-photo-badge">📸 Text Yard for Live Photos &amp; Video</div>` : ''}
       <div class="sc-footer">

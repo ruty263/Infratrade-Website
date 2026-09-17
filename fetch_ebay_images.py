@@ -9,7 +9,7 @@ Credentials are read from environment variables:
   EBAY_CLIENT_SECRET — Cert ID (Client Secret)
 """
 
-import json, os, sys, time, base64
+import json, os, sys, time, base64, subprocess
 import urllib.request, urllib.error, urllib.parse
 
 # ── Config ────────────────────────────────────────────────────────────────────
@@ -132,6 +132,9 @@ def main():
 
     # Final save
     _save(items)
+    page_generator = os.path.join(os.path.dirname(__file__), "generate_product_pages.py")
+    if os.path.exists(page_generator):
+        subprocess.run([sys.executable, page_generator], check=True)
     print(f"\nDone. {success}/{total} images fetched, {missing} listings had no image.")
 
 def _save(items):

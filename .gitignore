@@ -67,3 +67,7 @@ attached_assets/
 
 # Temporary scripts
 fetch_images.py
+
+# Generated SEO output; recreated by the stock refresh and build scripts
+/artifacts/infratrade/public/product/
+/artifacts/infratrade/public/sitemap.xml
