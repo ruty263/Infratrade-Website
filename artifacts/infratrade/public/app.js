@@ -340,11 +340,10 @@ function renderStockCard(item, container) {
   card.innerHTML = `
     ${hasImg ? `
     <a class="sc-product-image-link" href="${productUrl(item)}"
-       aria-label="View ${escHtml(item.title)}"
-       onclick="if (!event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey) { event.preventDefault(); openModal('${escHtml(item.image)}'); }">
+       aria-label="View ${escHtml(item.title)}">
       <div class="sc-img-wrap">
         <img class="sc-img" src="${escHtml(item.image)}" alt="${escHtml(item.title)}" loading="lazy"
-             title="Click to enlarge"
+             title="View product details"
              onerror="this.closest('.sc-img-wrap').style.display='none'">
       </div>
     </a>` : ''}
@@ -535,11 +534,10 @@ function renderHomepageCard(item, container) {
   card.innerHTML = `
     ${hasImg ? `
     <a class="sc-product-image-link" href="${productUrl(item)}"
-       aria-label="View ${escHtml(item.title)}"
-       onclick="if (!event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey) { event.preventDefault(); openModal('${escHtml(item.image)}'); }">
+       aria-label="View ${escHtml(item.title)}">
       <div class="sc-img-wrap">
         <img class="sc-img" src="${escHtml(item.image)}" alt="${escHtml(item.title)}" loading="lazy"
-             title="Click to enlarge"
+             title="View product details"
              onerror="this.closest('.sc-img-wrap').style.display='none'">
       </div>
     </a>` : ''}

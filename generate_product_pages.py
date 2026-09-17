@@ -57,11 +57,41 @@ def whatsapp_url(item):
     return f"https://wa.me/{WA_NUMBER}?text={quote(message)}"
 
 
+def condition_label(item):
+    explicit = str(item.get("condition", "")).strip()
+    if explicit:
+        return explicit
+
+    title = str(item.get("title", "")).lower()
+    if re.search(r"\bbrand\s+new\b", title):
+        return "Brand New"
+    if re.search(r"\brefurbished?\b", title):
+        return "Refurbished"
+    if re.search(r"\b(?:for parts|spares or repair|not working)\b", title):
+        return "For parts or not working"
+    if re.search(r"\bnew\b", title):
+        return "New"
+    return "Used"
+
+
+def condition_schema_url(label):
+    normalized = label.lower()
+    if normalized in {"new", "brand new"}:
+        return "https://schema.org/NewCondition"
+    if "refurb" in normalized:
+        return "https://schema.org/RefurbishedCondition"
+    if normalized == "used":
+        return "https://schema.org/UsedCondition"
+    if "parts" in normalized or "not working" in normalized:
+        return "https://schema.org/DamagedCondition"
+    return ""
+
+
 def description(item):
     title = str(item.get("title", "")).strip()
     category = str(item.get("category", "")).strip()
     ebay_category = str(item.get("ebay_category", "")).strip()
-    parts = [title]
+    parts = [title, f"Condition: {condition_label(item)}."]
     if category:
         parts.append(f"Category: {category}.")
     if ebay_category and ebay_category != category:
@@ -71,6 +101,7 @@ def description(item):
 
 def jsonld(item):
     active = item.get("status") == "active"
+    condition_url = condition_schema_url(condition_label(item))
     data = {
         "@context": "https://schema.org",
         "@type": "Product",
@@ -91,6 +122,8 @@ def jsonld(item):
             else "https://schema.org/OutOfStock"
         ),
     }
+    if condition_url:
+        offer["itemCondition"] = condition_url
     if active:
         try:
             offer["price"] = f"{float(item['price']):.2f}"
@@ -108,6 +141,7 @@ def page_html(item):
     image = item.get("image", "")
     category = esc(item.get("category", ""))
     ebay_category = esc(item.get("ebay_category", ""))
+    condition = esc(condition_label(item))
     status = "Available in current stock" if active else "No longer listed / unavailable"
     status_class = "product-status--active" if active else "product-status--unavailable"
     image_html = (
@@ -179,6 +213,7 @@ def page_html(item):
           {price_html}
           <p class="product-detail-description">{esc(description(item))}</p>
           <dl class="product-specs">
+            <div><dt>Condition</dt><dd>{condition}</dd></div>
             <div><dt>Website category</dt><dd>{category}</dd></div>
             {f'<div><dt>eBay category</dt><dd>{ebay_category}</dd></div>' if ebay_category else ""}
             <div><dt>Listing reference</dt><dd>{esc(item["item_id"])}</dd></div>
