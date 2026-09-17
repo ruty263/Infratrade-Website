@@ -90,12 +90,9 @@ def condition_schema_url(label):
 def description(item):
     title = str(item.get("title", "")).strip()
     category = str(item.get("category", "")).strip()
-    ebay_category = str(item.get("ebay_category", "")).strip()
     parts = [title, f"Condition: {condition_label(item)}."]
     if category:
         parts.append(f"Category: {category}.")
-    if ebay_category and ebay_category != category:
-        parts.append(f"eBay category: {ebay_category}.")
     return " ".join(parts)
 
 
@@ -140,7 +137,6 @@ def page_html(item):
     meta_description = esc(description(item))
     image = item.get("image", "")
     category = esc(item.get("category", ""))
-    ebay_category = esc(item.get("ebay_category", ""))
     condition = esc(condition_label(item))
     status = "Available in current stock" if active else "No longer listed / unavailable"
     status_class = "product-status--active" if active else "product-status--unavailable"
@@ -208,14 +204,12 @@ def page_html(item):
         <div class="product-detail-content">
           <div class="section-label">{category}</div>
           <h1>{title}</h1>
-          <div class="product-reference">eBay item ID: {esc(item["item_id"])}</div>
           <div class="product-status {status_class}">{status}</div>
           {price_html}
           <p class="product-detail-description">{esc(description(item))}</p>
           <dl class="product-specs">
             <div><dt>Condition</dt><dd>{condition}</dd></div>
             <div><dt>Website category</dt><dd>{category}</dd></div>
-            {f'<div><dt>eBay category</dt><dd>{ebay_category}</dd></div>' if ebay_category else ""}
             <div><dt>Listing reference</dt><dd>{esc(item["item_id"])}</dd></div>
           </dl>
           <div class="product-detail-actions">{action_html}</div>
