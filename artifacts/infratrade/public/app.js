@@ -374,21 +374,12 @@ function escHtml(s) {
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
-function productSlug(item) {
-  const base = String(item.title || 'product')
-    .normalize('NFKD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .toLowerCase()
-    .replace(/&/g, ' and ')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .slice(0, 100)
-    .replace(/-+$/g, '') || 'product';
-  return `${base}-${item.item_id}`;
-}
-
 function productUrl(item) {
-  return `product/${productSlug(item)}/`;
+  const slug = String(item.product_slug || '').trim();
+  if (!slug) {
+    throw new Error(`Missing authoritative product slug for item ${item.item_id}`);
+  }
+  return `product/${slug}/`;
 }
 
 // ── Category grid (index.html) ────────────────────────────────────────────────

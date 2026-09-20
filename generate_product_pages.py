@@ -15,6 +15,7 @@ ROOT = Path(__file__).resolve().parent
 CURRENT_JSON = ROOT / "inventory_categories.json"
 HISTORY_JSON = ROOT / "product_history.json"
 PUBLIC_DIR = ROOT / "artifacts" / "infratrade" / "public"
+PUBLIC_INVENTORY_JSON = PUBLIC_DIR / "inventory_categories.json"
 PRODUCT_DIR = PUBLIC_DIR / "product"
 SITE_URL = os.environ.get("SITE_URL", "https://www.infratrade.co.uk").rstrip("/")
 WA_NUMBER = "447909329693"
@@ -263,6 +264,17 @@ def main():
 
     HISTORY_JSON.write_text(
         json.dumps(merged, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    public_inventory = [
+        {
+            **raw,
+            "product_slug": merged[str(raw["item_id"])]["slug"],
+        }
+        for raw in current
+    ]
+    PUBLIC_INVENTORY_JSON.write_text(
+        json.dumps(public_inventory, ensure_ascii=False, separators=(",", ":")),
         encoding="utf-8",
     )
 
